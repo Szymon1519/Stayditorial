@@ -24,6 +24,17 @@ h1 {
   letter-spacing: 0.05em;
 }
 
+.intro-text {
+  max-width: 700px;
+  margin: 1.5rem auto 2rem auto;
+  text-align: center;
+  line-height: 1.7;
+  font-size: 1.1rem;
+  color: #4a4a4a;
+  font-weight: 400;
+}
+
+
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
