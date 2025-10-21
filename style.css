@@ -6,7 +6,7 @@ body {
   text-align: center;
 }
 
-header h1 {
+header {
   font-size: clamp(1.8rem, 5vw, 2.8rem); /* responsive font size */
   padding: 0 1.5rem;                      /* padding so text doesn’t touch screen edges */
   word-wrap: break-word;                  /* allow breaking long words */
