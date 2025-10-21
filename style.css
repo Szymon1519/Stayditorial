@@ -7,15 +7,17 @@ body {
 }
 
 header {
-  padding: 5rem 1rem 3rem 1rem;
+  padding: 1rem 1rem 1rem 1rem;
 }
 
 h1 {
   font-family: 'Playfair Display', serif;
-  font-size: 3rem;
+  font-size: clamp(1rem, 8vw, 2.8rem); /* scales font size between 1rem and 2.8rem based on viewport */
+  padding: 0 1.5rem;
   letter-spacing: 0.15em;
   margin: 0;
 }
+
 
 .tagline {
   margin-top: 0.5rem;
@@ -23,6 +25,17 @@ h1 {
   color: #555;
   letter-spacing: 0.05em;
 }
+
+.intro-text {
+  margin: 0rem auto 2rem auto;   /*  auto center, fills horizontal space */
+  padding: 0 3vw;          /* Add horizontal padding similar to gallery */
+  text-align: justify;
+  font-size: 0.9rem;       /* Smaller font size */
+  color: #4a4a4a;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
 
 .gallery {
   display: grid;
@@ -34,7 +47,7 @@ h1 {
 .gallery img {
   width: 100%;
   height: auto;
-  border-radius: 6px;
+  border-radius: 0px;
   object-fit: cover;
 }
 
