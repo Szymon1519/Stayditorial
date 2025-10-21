@@ -25,8 +25,8 @@ h1 {
 }
 
 .intro-text {
-  margin: 0rem auto 2rem auto;
-  text-align: center;
+  margin: 1rem auto 1rem auto;
+  text-align: left;
   line-height: 1.7;
   font-size: 0.8rem;
   color: #4a4a4a;
