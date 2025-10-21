@@ -7,7 +7,7 @@ body {
 }
 
 header {
-  padding: 5rem 1rem 3rem 1rem;
+  padding: 0 1.5rem;
   font-size: clamp(1rem, 8vw, 2.8rem); /* responsive font size */          
   box-sizing: border-box;
   white-space: nowrap; /* prevent wrapping to new line */
