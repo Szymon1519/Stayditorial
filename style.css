@@ -34,7 +34,7 @@ h1 {
 .gallery img {
   width: 100%;
   height: auto;
-  border-radius: 6px;
+  border-radius: 0px;
   object-fit: cover;
 }
 
