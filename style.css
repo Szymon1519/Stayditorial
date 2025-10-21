@@ -26,7 +26,7 @@ h1 {
 
 .intro-text {
   max-width: 100%;         /* Allows full width */
-  margin: 1rem 0 2rem 0;   /* No auto center, fills horizontal space */
+  margin: 1rem auto 2rem auto;   /*  auto center, fills horizontal space */
   padding: 0 3vw;          /* Add horizontal padding similar to gallery */
   text-align: justify;
   font-size: 0.9rem;       /* Smaller font size */
