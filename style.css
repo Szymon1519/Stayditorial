@@ -8,10 +8,8 @@ body {
 
 header {
   padding: 5rem 1rem 3rem 1rem;
-  font-size: clamp(1.8rem, 5vw, 2.8rem); /* responsive font size */
-  padding: 0 1.5rem;                      /* padding so text doesn’t touch screen edges */
-  word-wrap: break-word;                  /* allow breaking long words */
-  overflow-wrap: break-word;              /* safer word break */
+  font-size: clamp(1rem, 8vw, 2.8rem); /* responsive font size */
+  padding: 0 1.5rem;                      /* padding so text doesn’t touch screen edges */            
   box-sizing: border-box;
   max-width: 100%;                        /* don't exceed container width */
 }
