@@ -12,7 +12,8 @@ header {
 
 h1 {
   font-family: 'Playfair Display', serif;
-  font-size: 3rem;
+  font-size: clamp(1rem, 8vw, 2.8rem); /* scales font size between 1rem and 2.8rem based on viewport */
+  padding: 0 1.5rem;
   letter-spacing: 0.15em;
   margin: 0;
 }
