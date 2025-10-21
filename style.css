@@ -12,6 +12,7 @@ header {
   box-sizing: border-box;
   white-space: nowrap; /* prevent wrapping to new line */
   max-width: 100%;                        /* don't exceed container width */
+  margin: 0rem auto 2rem auto;   /*  auto center, fills horizontal space */
 }
 
 h1 {
