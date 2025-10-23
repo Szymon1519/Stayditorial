@@ -44,6 +44,7 @@ h1 {
 }
 
 .gallery img {
+  eight: 500px;         /* fixed height */
   aspect-ratio: 4 / 5;    /* enforces 4x5 aspect ratio */
   border-radius: 0px;
   object-position: center center;
