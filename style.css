@@ -37,18 +37,20 @@ h1 {
 }
 
 .gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-auto-rows: 300px;  /* fixed row height */
+  display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   padding: 0 1rem 4rem 1rem;
+  align-items: flex-start; /* align all images by top */
 }
 
 .gallery img {
-  height: 300px;  /* fixed height for all images */
-  width: auto;    /* scale width proportionally */
-  object-fit: cover;  /* crops to fill container if needed */
-  border-radius: 0px;
+  height: 500px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  flex-shrink: 0;  /* prevent shrinking below intrinsic width */
 }
 
 footer {
