@@ -54,16 +54,12 @@ h1 {
   max-width: 100%;            /* avoid overflow */
 }
 
-@media (max-width: 1000px) { /* When screen narrows below 1000px */
-  .gallery {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  }
-}
-
 @media (max-width: 600px) { /* On small/mobile screens */
   .gallery {
     grid-template-columns: 1fr;  /* Single column stack */
     max-width: 100%;
+    .tagline {
+    font-size: 0.8rem; /* smaller font size for mobile */
   }
 }
 
