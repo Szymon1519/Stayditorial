@@ -43,7 +43,7 @@ h1 {
 }
 
 #gallery {
-  max-width: 1200px;  /* or 80vw or so */
+  max-width: 100%;  /* or 80vw or so */
   margin: 0 auto;
 }
 
