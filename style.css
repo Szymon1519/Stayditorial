@@ -13,6 +13,11 @@ header {
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
 
 .mobile-menu {
+  display: none;
+}
+
+@media (max-width: 600px) {
+.mobile-menu {
   position: sticky;
   top: 0;
   width: 100%;
@@ -66,6 +71,7 @@ header {
 /* When dropdown is active - expand smoothly */
 .dropdown.active {
   max-height: 500px; /* large enough to show all links */
+}
 }
 
 
