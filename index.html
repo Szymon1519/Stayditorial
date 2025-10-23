@@ -12,14 +12,15 @@
 
 </head>
 <body>
-  <div class="top-menu">
-  <button id="menu-toggle" aria-expanded="false" aria-controls="dropdown-menu" aria-label="Toggle menu">MENU</button>
-  <nav id="dropdown-menu" class="dropdown" hidden>
+<div class="mobile-menu">
+  <button id="menu-toggle" aria-expanded="false" aria-controls="menu-dropdown" aria-label="Open menu">MENU</button>
+  <nav id="menu-dropdown" hidden>
     <a href="mailto:hi@stayditorial.com">hi@stayditorial.com</a>
     <a href="https://instagram.com/stayditorial" target="_blank" rel="noopener">Instagram</a>
     <a href="your-media-kit.pdf" target="_blank" rel="noopener">Media Kit</a>
   </nav>
 </div>
+
 
 <header>
 <h1>Stayditorial</h1>
@@ -89,14 +90,14 @@
 <p>© STAYDITORIAL 2025</p>
 <p><a href="mailto:hi@stayditorial.com">hi@stayditorial.com</a> &nbsp;|&nbsp; <a href="https://instagram.com/stayditorial" target="_blank">Instagram</a></p>
 </footer>
-  <script>
-  const menuToggle = document.getElementById('menu-toggle');
-  const dropdown = document.getElementById('dropdown-menu');
+<script>
+  const menuButton = document.getElementById('menu-toggle');
+  const menuDropdown = document.getElementById('menu-dropdown');
 
-  menuToggle.addEventListener('click', () => {
-    const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
-    menuToggle.setAttribute('aria-expanded', !expanded);
-    dropdown.hidden = expanded;
+  menuButton.addEventListener('click', () => {
+    const expanded = menuButton.getAttribute('aria-expanded') === 'true';
+    menuButton.setAttribute('aria-expanded', !expanded);
+    menuDropdown.hidden = expanded;
   });
 </script>
 
