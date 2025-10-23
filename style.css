@@ -48,7 +48,7 @@ h1 {
 
 .gallery img {
   width: 100%;        /* Fills the grid column */
-  height: auto;       /* Preserves aspect ratio, no cropping */
+  height: 500px;       /* Preserves aspect ratio, no cropping */
   display: block;
   border-radius: 0px; /* Optional: rounded corners */
   box-shadow: 0 2px 8px rgba(0,0,0,0.04); /* Optional: nice shadow */
