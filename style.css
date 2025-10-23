@@ -38,22 +38,22 @@ h1 {
 
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1rem;
   padding: 0 1rem 4rem 1rem;
-  box-sizing: border-box;       /* include padding in width calculations */
+  box-sizing: border-box;
 }
 
 .gallery img {
-  width: 100%;                 /* fill entire cell width */
-  height: 500px;         /* fixed height */
-  aspect-ratio: 4 / 5;    /* enforces 4x5 aspect ratio */
-  border-radius: 0px;
-  object-position: center center;
-  object-fit: cover;
-  display: block;
-  max-width: 100%;             /* prevent overflow */
+  width: 100%;                /* fill grid cell horizontally */
+  height: auto;               /* height calculated by aspect ratio */
+  aspect-ratio: 4 / 5;        /* vertical 4:5 ratio */
+  object-fit: cover;          /* crop overflow to fill perfectly */
+  object-position: center;    /* crop centered */
+  display: block;             /* remove inline space */
+  max-width: 100%;            /* avoid overflow */
 }
+
 
 footer {
   padding: 2rem 1rem;
