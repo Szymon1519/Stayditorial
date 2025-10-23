@@ -38,28 +38,18 @@ h1 {
 
 
 .gallery {
-  column-count: 3;         /* Number of masonry columns (auto on wide screens) */
-  column-gap: 1rem;        /* Space between columns */
-  padding: 1rem;
-  width: 100%;             /* Full width container */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+  grid-template-rows: masonry;
 }
 
 .gallery img {
-  width: 100%;             /* img fills column width */
-  height: auto;            /* preserve aspect ratio */
+  width: 100%;
+  height: auto;
   display: block;
-  margin-bottom: 1rem;     /* space under each image */
-  break-inside: avoid;     /* prevents awkward column breaks */
-  border-radius: 10px;     /* optional, for rounded corners */
+  border-radius: 0px;
 }
-
-@media (max-width: 900px) {
-  .gallery { column-count: 2; }
-}
-@media (max-width: 600px) {
-  .gallery { column-count: 1; }
-}
-
 
 
 footer {
