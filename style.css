@@ -37,24 +37,21 @@ h1 {
 }
 
 .gallery {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
-  grid-auto-flow: dense;
-  /* Optional for extra control: masonry auto-rows */
-  grid-template-rows: masonry;
   padding: 1rem;
+  justify-content: flex-start;
 }
 
 .gallery img {
-  width: 100%;        /* Fills the grid column */
-  height: 500px;       /* Preserves aspect ratio, no cropping */
+  width: 300px;          /* fixed width */
+  height: 200px;         /* fixed height */
+  object-fit: cover;     /* crops and fills container */
+  object-position: center center;  /* crop from top/bottom equally */
+  border-radius: 0px;
   display: block;
-  border-radius: 0px; /* Optional: rounded corners */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04); /* Optional: nice shadow */
-  background: #eee;   /* Optional: placeholder color */
 }
-
-
 
 footer {
   padding: 2rem 1rem;
