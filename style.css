@@ -7,7 +7,7 @@ body {
 }
 
 header {
-  padding: 1rem 1rem 1rem 1rem;
+  padding: 2rem 1rem 2rem 1rem;
 }
 
 h1 {
@@ -36,19 +36,23 @@ h1 {
   line-height: 1.6;
 }
 
-
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1rem;
   padding: 0 1rem 4rem 1rem;
+  box-sizing: border-box;       /* include padding in width calculations */
 }
 
 .gallery img {
-  width: 100%;
-  height: auto;
+  width: 100%;                 /* fill entire cell width */
+  height: 500px;         /* fixed height */
+  aspect-ratio: 4 / 5;    /* enforces 4x5 aspect ratio */
   border-radius: 0px;
+  object-position: center center;
   object-fit: cover;
+  display: block;
+  max-width: 100%;             /* prevent overflow */
 }
 
 footer {
