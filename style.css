@@ -36,32 +36,19 @@ h1 {
   line-height: 1.6;
 }
 
-#gallery img {
-  max-width: 100%;
-  height: 500px;
-  display: block;  /* removes whitespace gap */
-}
-
-#gallery {
-  max-width: 100%;  /* or 80vw or so */
-  margin: 0 auto;
-}
-
-
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1rem;
-  grid-template-rows: masonry;
+  padding: 0 1rem 4rem 1rem;
 }
 
 .gallery img {
   width: 100%;
   height: auto;
-  display: block;
   border-radius: 0px;
+  object-fit: cover;
 }
-
 
 footer {
   padding: 2rem 1rem;
