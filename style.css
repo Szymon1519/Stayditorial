@@ -37,18 +37,19 @@ h1 {
 }
 
 .gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem; /* equal gaps between rows and columns */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem; /* space between images */
   padding: 0 1rem 4rem 1rem;
+  justify-content: flex-start;
 }
 
 .gallery img {
-  width: 100%;   /* full width of the cell */
-  height: auto;  /* height adjusts to preserve aspect ratio */
-  object-fit: contain; /* or remove, images will fit naturally */
-  border-radius: 0px;
-  display: block; /* remove bottom whitespace */
+  width: calc((100% / 3) - 1rem); /* adjust divide based on desired no per row */
+  height: auto;
+  border-radius: 4px;
+  display: block;
+  margin: 0;
 }
 
 
