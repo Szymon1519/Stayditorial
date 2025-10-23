@@ -38,17 +38,26 @@ h1 {
 
 
 .gallery {
-  column-count: 3;
-  column-gap: 1rem;
+  column-count: 3;         /* Number of masonry columns (auto on wide screens) */
+  column-gap: 1rem;        /* Space between columns */
   padding: 1rem;
+  width: 100%;             /* Full width container */
 }
 
 .gallery img {
-  width: 100%;
-  height: auto;
+  width: 100%;             /* img fills column width */
+  height: auto;            /* preserve aspect ratio */
   display: block;
-  margin-bottom: 1rem; /* gap at the bottom */
-  border-radius: 0px;
+  margin-bottom: 1rem;     /* space under each image */
+  break-inside: avoid;     /* prevents awkward column breaks */
+  border-radius: 10px;     /* optional, for rounded corners */
+}
+
+@media (max-width: 900px) {
+  .gallery { column-count: 2; }
+}
+@media (max-width: 600px) {
+  .gallery { column-count: 1; }
 }
 
 
