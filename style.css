@@ -59,7 +59,7 @@ h1 {
     grid-template-columns: 1fr;  /* Single column stack */
     max-width: 100%;
     .tagline {
-    font-size: 0.8rem; /* smaller font size for mobile */
+    font-size: 0.3rem; /* smaller font size for mobile */
   }
 }
 
