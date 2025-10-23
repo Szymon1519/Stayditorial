@@ -38,7 +38,7 @@ h1 {
 
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(540px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
   gap: 1rem;
   padding: 0 1rem 4rem 1rem;
   box-sizing: border-box;
