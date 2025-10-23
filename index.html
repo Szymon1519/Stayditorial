@@ -89,5 +89,16 @@
 <p>© STAYDITORIAL 2025</p>
 <p><a href="mailto:hi@stayditorial.com">hi@stayditorial.com</a> &nbsp;|&nbsp; <a href="https://instagram.com/stayditorial" target="_blank">Instagram</a></p>
 </footer>
+  <script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const dropdown = document.getElementById('dropdown-menu');
+
+  menuToggle.addEventListener('click', () => {
+    const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+    menuToggle.setAttribute('aria-expanded', !expanded);
+    dropdown.hidden = expanded;
+  });
+</script>
+
 </body>
 </html>
