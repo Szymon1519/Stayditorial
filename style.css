@@ -41,15 +41,18 @@ h1 {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1rem;
   padding: 0 1rem 4rem 1rem;
+  box-sizing: border-box;       /* include padding in width calculations */
 }
 
 .gallery img {
+  width: 100%;                 /* fill entire cell width */
   height: 500px;         /* fixed height */
   aspect-ratio: 4 / 5;    /* enforces 4x5 aspect ratio */
   border-radius: 0px;
   object-position: center center;
   object-fit: cover;
   display: block;
+  max-width: 100%;             /* prevent overflow */
 }
 
 footer {
