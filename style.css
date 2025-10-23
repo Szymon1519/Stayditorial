@@ -36,6 +36,17 @@ h1 {
   line-height: 1.6;
 }
 
+#gallery img {
+  max-width: 100%;
+  height: 500px;
+  display: block;  /* removes whitespace gap */
+}
+
+#gallery {
+  max-width: 1200px;  /* or 80vw or so */
+  margin: 0 auto;
+}
+
 
 .gallery {
   display: grid;
