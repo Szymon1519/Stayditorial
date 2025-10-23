@@ -42,12 +42,11 @@ h1 {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1rem;
   padding: 0 1rem 4rem 1rem;
-  grid-auto-rows: 200px; /* fixed row height for uniformity */
 }
 
 .gallery img {
-  width: auto;
-  height: 400px;
+  width: 100%;
+  height: auto;
   border-radius: 0px;
   object-fit: cover;
 }
