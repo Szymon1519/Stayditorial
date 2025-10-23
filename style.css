@@ -18,6 +18,7 @@ header {
 
 @media (max-width: 600px) {
 .mobile-menu {
+  display: flex; /* or block */
   position: sticky;
   top: 0;
   width: 100%;
