@@ -38,7 +38,6 @@ h1 {
 
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1rem;
   grid-auto-flow: dense;
   /* Optional for extra control: masonry auto-rows */
