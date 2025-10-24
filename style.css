@@ -90,9 +90,6 @@ header {
     text-decoration: underline;
   }
 }
-
-
-
 h1 {
   font-family: 'Playfair Display', serif;
   font-size: clamp(1rem, 8vw, 2.8rem); /* scales font size between 1rem and 2.8rem based on viewport */
