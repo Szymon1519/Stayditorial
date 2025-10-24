@@ -38,7 +38,7 @@ header {
     margin-bottom: 0rem;
     max-height: 0;
     /* Changed opacity to 0 to fade in */
-    opacity: 0; 
+    opacity: 1; 
     pointer-events: none;
     overflow: hidden;
     /* Added opacity to the transition for a fade effect */
