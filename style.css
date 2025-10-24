@@ -16,7 +16,7 @@ header {
   display: none;
 }
 
-@@media (max-width: 600px) {
+@media (max-width: 600px) {
   .mobile-menu {
     display: flex;
     flex-direction: column;
