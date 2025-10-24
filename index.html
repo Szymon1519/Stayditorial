@@ -94,19 +94,40 @@
 <p><a href="mailto:hi@stayditorial.com">hi@stayditorial.com</a> &nbsp;|&nbsp; <a href="https://instagram.com/stayditorial" target="_blank">Instagram</a></p>
 </footer>
 <script>
+  // MENU TOGGLE
   const menuToggle = document.getElementById('menu-toggle');
   const dropdown = document.getElementById('menu-dropdown');
+  const menuBar = document.querySelector('.mobile-menu');
 
   menuToggle.addEventListener('click', () => {
     const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-    menuToggle.setAttribute('aria-expanded', String(!isExpanded));
+    menuToggle.setAttribute('aria-expanded', !isExpanded);
 
     if (dropdown.classList.contains('active')) {
       dropdown.classList.remove('active');
+      dropdown.setAttribute('aria-hidden', 'true');
     } else {
       dropdown.classList.add('active');
+      dropdown.setAttribute('aria-hidden', 'false');
     }
   });
+
+  // HIDE/SHOW MENU ON SCROLL
+  let lastScrollTop = 0;
+  window.addEventListener('scroll', function() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    if (scrollTop > lastScrollTop && scrollTop > 80) {
+      // scrolling down, hide menu
+      menuBar.style.transform = 'translateY(-100%)';
+      menuBar.style.transition = 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+    } else {
+      // scrolling up or at top, show menu
+      menuBar.style.transform = 'translateY(0)';
+      menuBar.style.transition = 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+    }
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+  }, false);
 </script>
+
 </body>
 </html>
