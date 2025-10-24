@@ -51,8 +51,8 @@ header {
   .mobile-menu button {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.15rem;
-    color: #fff;
-    background: none;
+    color: #888;
+    background: #fff;
     border: none;
     letter-spacing: 0.34em;
     font-weight: 600;
@@ -60,7 +60,7 @@ header {
     width: 100vw;
     text-align: center;
     margin: 0;
-    padding: 0.7rem 0 0.7rem 0;
+    padding: 0rem 0 0rem 0;
     border-radius: 0;
     transition: background 0.2s;
   }
