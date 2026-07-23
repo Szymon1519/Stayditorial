@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="images/favicon.png" type="image/png">
     <title>Stayditorial | Photography & Visual Storytelling</title>
-    <link rel="stylesheet" href="style.css?v=10">
+    <link rel="stylesheet" href="style.css?v=11">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
@@ -217,7 +217,7 @@
 
         let lastTapTime = 0;
         const galleryContainer = document.querySelector('.gallery');
-        let pinScrollAnimationId = null;
+        const imgs = Array.from(galleryContainer.querySelectorAll('img'));
         
         imagesArray.forEach((img, index) => {
             img.style.cursor = 'pointer';
@@ -228,26 +228,51 @@
                     if (tapLength < 300 && tapLength > 0) {
                         e.preventDefault();
                         
-                        if (pinScrollAnimationId) cancelAnimationFrame(pinScrollAnimationId);
+                        // FLIP Animation Strategy
+                        // 1. First (Measure start state)
+                        const firstRects = imgs.map(i => i.getBoundingClientRect());
+                        const tappedFirstTop = firstRects[index].top;
                         
-                        const startY = img.getBoundingClientRect().top;
+                        // 2. Last (Instantly swap layout)
                         galleryContainer.classList.toggle('mobile-zoomed-gallery');
                         
-                        const startTime = performance.now();
-                        function pinScroll() {
-                            const currentY = img.getBoundingClientRect().top;
-                            const diff = currentY - startY;
+                        // 3. Scroll Correction (Instant, before next paint)
+                        const tappedLastTopTemp = img.getBoundingClientRect().top;
+                        window.scrollBy(0, tappedLastTopTemp - tappedFirstTop);
+                        
+                        // 4. Measure Last state (after scroll correction)
+                        const lastRects = imgs.map(i => i.getBoundingClientRect());
+                        
+                        // 5. Invert
+                        imgs.forEach((i, idx) => {
+                            const first = firstRects[idx];
+                            const last = lastRects[idx];
+                            const deltaX = first.left - last.left;
+                            const deltaY = first.top - last.top;
+                            const scaleX = first.width / last.width;
+                            const scaleY = first.height / last.height;
                             
-                            if (Math.abs(diff) > 0.5) {
-                                window.scrollBy(0, diff);
-                            }
-                            
-                            // 600ms transition + 50ms buffer
-                            if (performance.now() - startTime < 650) {
-                                pinScrollAnimationId = requestAnimationFrame(pinScroll);
-                            }
-                        }
-                        pinScrollAnimationId = requestAnimationFrame(pinScroll);
+                            i.style.transformOrigin = 'top left';
+                            i.style.transition = 'none';
+                            i.style.transform = `translate(${deltaX}px, ${deltaY}px) scale(${scaleX}, ${scaleY})`;
+                        });
+                        
+                        // 6. Force reflow
+                        galleryContainer.offsetHeight;
+                        
+                        // 7. Play
+                        imgs.forEach(i => {
+                            i.style.transition = 'transform 0.6s cubic-bezier(0.22, 1, 0.36, 1)';
+                            i.style.transform = ''; // Animate to final state
+                        });
+                        
+                        // Cleanup after transition
+                        setTimeout(() => {
+                            imgs.forEach(i => {
+                                i.style.transition = '';
+                                i.style.transformOrigin = '';
+                            });
+                        }, 600);
                     }
                     lastTapTime = currentTime;
                     return;
