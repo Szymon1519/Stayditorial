@@ -223,13 +223,15 @@ body {
     display: block;
     border-radius: 0; /* Sharp 90 degree corners */
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
     
     /* Scroll Animation Base State */
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
                 transform 0.8s cubic-bezier(0.4, 0, 0.2, 1),
-                filter 0.4s ease;
+                filter 0.4s ease,
+                width 0.3s ease, margin 0.3s ease;
 }
 
 /* State when Intersection Observer triggers */
@@ -238,8 +240,18 @@ body {
     transform: translateY(0);
 }
 
-.gallery img:hover {
-    filter: brightness(0.85);
+@media (hover: hover) and (pointer: fine) {
+    .gallery img:hover {
+        filter: brightness(0.85);
+    }
+}
+
+.gallery img.mobile-zoomed {
+    width: 100vw;
+    margin-left: -1.5rem;
+    max-width: none;
+    position: relative;
+    z-index: 10;
 }
 
 /* =========================================
