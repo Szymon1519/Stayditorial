@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="images/favicon.png" type="image/png">
     <title>Stayditorial | Photography & Visual Storytelling</title>
-    <link rel="stylesheet" href="style.css?v=11">
+    <link rel="stylesheet" href="style.css?v=12">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
@@ -215,7 +215,6 @@
             updateLightboxImage();
         }
 
-        let lastTapTime = 0;
         const galleryContainer = document.querySelector('.gallery');
         const imgs = Array.from(galleryContainer.querySelectorAll('img'));
         
@@ -223,58 +222,7 @@
             img.style.cursor = 'pointer';
             img.addEventListener('click', (e) => {
                 if (window.innerWidth <= 600) {
-                    const currentTime = new Date().getTime();
-                    const tapLength = currentTime - lastTapTime;
-                    if (tapLength < 300 && tapLength > 0) {
-                        e.preventDefault();
-                        
-                        // FLIP Animation Strategy
-                        // 1. First (Measure start state)
-                        const firstRects = imgs.map(i => i.getBoundingClientRect());
-                        const tappedFirstTop = firstRects[index].top;
-                        
-                        // 2. Last (Instantly swap layout)
-                        galleryContainer.classList.toggle('mobile-zoomed-gallery');
-                        
-                        // 3. Scroll Correction (Instant, before next paint)
-                        const tappedLastTopTemp = img.getBoundingClientRect().top;
-                        window.scrollBy(0, tappedLastTopTemp - tappedFirstTop);
-                        
-                        // 4. Measure Last state (after scroll correction)
-                        const lastRects = imgs.map(i => i.getBoundingClientRect());
-                        
-                        // 5. Invert
-                        imgs.forEach((i, idx) => {
-                            const first = firstRects[idx];
-                            const last = lastRects[idx];
-                            const deltaX = first.left - last.left;
-                            const deltaY = first.top - last.top;
-                            const scaleX = first.width / last.width;
-                            const scaleY = first.height / last.height;
-                            
-                            i.style.transformOrigin = 'top left';
-                            i.style.transition = 'none';
-                            i.style.transform = `translate(${deltaX}px, ${deltaY}px) scale(${scaleX}, ${scaleY})`;
-                        });
-                        
-                        // 6. Force reflow
-                        galleryContainer.offsetHeight;
-                        
-                        // 7. Play
-                        imgs.forEach(i => {
-                            i.style.transition = 'transform 0.6s cubic-bezier(0.22, 1, 0.36, 1)';
-                            i.style.transform = ''; // Animate to final state
-                        });
-                        
-                        // Cleanup after transition
-                        setTimeout(() => {
-                            imgs.forEach(i => {
-                                i.style.transition = '';
-                                i.style.transformOrigin = '';
-                            });
-                        }, 600);
-                    }
-                    lastTapTime = currentTime;
+                    // Mobile: Prevent lightbox, allow native OS double-tap-to-zoom
                     return;
                 }
                 openLightbox(index);

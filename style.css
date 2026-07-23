@@ -368,11 +368,6 @@ body {
         gap: 1.5rem; /* Original gap */
         padding: 0 1.5rem 4rem; /* Original outer bounds */
     }
-    
-    .gallery.mobile-zoomed-gallery {
-        padding: 0 0 4rem; /* Remove outer boundaries entirely */
-        gap: 2px; /* Pull images tightly together */
-    }
     .site-footer {
         padding: 2rem 1.5rem;
     }
