@@ -364,9 +364,12 @@ body {
     }
     
     .gallery {
-        grid-template-columns: 1fr;
-        gap: 1.5rem; /* Original gap */
+        display: block; /* Removing CSS grid enables native iOS double-tap-to-zoom! */
         padding: 0 1.5rem 4rem; /* Original outer bounds */
+    }
+    
+    .gallery img {
+        margin-bottom: 1.5rem; /* Replaces grid gap */
     }
     .site-footer {
         padding: 2rem 1.5rem;
