@@ -355,8 +355,8 @@ body {
     
     .gallery {
         grid-template-columns: 1fr;
-        gap: 2px; /* Super thin gap on mobile */
-        padding: 0 2px 4rem; /* Super thin outer bounds on mobile */
+        gap: 1.5rem; /* Original gap */
+        padding: 0 1.5rem 4rem; /* Original outer bounds */
     }
     .site-footer {
         padding: 2rem 1.5rem;
