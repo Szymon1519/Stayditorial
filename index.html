@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="images/favicon.png" type="image/png">
     <title>Stayditorial | Photography & Visual Storytelling</title>
-    <link rel="stylesheet" href="style.css?v=9">
+    <link rel="stylesheet" href="style.css?v=10">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
@@ -217,6 +217,7 @@
 
         let lastTapTime = 0;
         const galleryContainer = document.querySelector('.gallery');
+        let pinScrollAnimationId = null;
         
         imagesArray.forEach((img, index) => {
             img.style.cursor = 'pointer';
@@ -225,18 +226,28 @@
                     const currentTime = new Date().getTime();
                     const tapLength = currentTime - lastTapTime;
                     if (tapLength < 300 && tapLength > 0) {
-                        // Capture position before layout change
-                        const rectBefore = img.getBoundingClientRect();
+                        e.preventDefault();
                         
+                        if (pinScrollAnimationId) cancelAnimationFrame(pinScrollAnimationId);
+                        
+                        const startY = img.getBoundingClientRect().top;
                         galleryContainer.classList.toggle('mobile-zoomed-gallery');
                         
-                        // Force layout and capture new position
-                        const rectAfter = img.getBoundingClientRect();
-                        
-                        // Scroll by the difference so the image doesn't jump
-                        window.scrollBy(0, rectAfter.top - rectBefore.top);
-                        
-                        e.preventDefault();
+                        const startTime = performance.now();
+                        function pinScroll() {
+                            const currentY = img.getBoundingClientRect().top;
+                            const diff = currentY - startY;
+                            
+                            if (Math.abs(diff) > 0.5) {
+                                window.scrollBy(0, diff);
+                            }
+                            
+                            // 600ms transition + 50ms buffer
+                            if (performance.now() - startTime < 650) {
+                                pinScrollAnimationId = requestAnimationFrame(pinScroll);
+                            }
+                        }
+                        pinScrollAnimationId = requestAnimationFrame(pinScroll);
                     }
                     lastTapTime = currentTime;
                     return;
