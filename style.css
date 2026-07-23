@@ -204,16 +204,14 @@ body {
 /* =========================================
    GALLERY (CROPPED GRID)
 ========================================= */
-.gallery-section {
-    max-width: 1800px; /* Big screen format */
-    margin: 0 auto;
-}
-
 .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-    gap: 0.5rem; /* Tighter padding between images */
-    padding: 0 4rem 6rem; /* Outer boundary slightly wider */
+    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr)); /* Larger base image size */
+    gap: 0.5rem;
+    padding: 0 2rem 6rem; /* Tighter outer boundaries on large screens */
+    max-width: 2400px;
+    margin: 0 auto;
+    transition: padding 0.4s ease, gap 0.4s ease;
 }
 
 .gallery img {
@@ -246,13 +244,7 @@ body {
     }
 }
 
-.gallery img.mobile-zoomed {
-    width: 100vw;
-    margin-left: -1.5rem;
-    max-width: none;
-    position: relative;
-    z-index: 10;
-}
+
 
 /* =========================================
    FOOTER
@@ -369,6 +361,11 @@ body {
         grid-template-columns: 1fr;
         gap: 1.5rem; /* Original gap */
         padding: 0 1.5rem 4rem; /* Original outer bounds */
+    }
+    
+    .gallery.mobile-zoomed-gallery {
+        padding: 0 0 4rem; /* Remove outer boundaries entirely */
+        gap: 2px; /* Pull images tightly together */
     }
     .site-footer {
         padding: 2rem 1.5rem;
