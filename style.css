@@ -206,12 +206,19 @@ body {
 ========================================= */
 .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr)); /* Larger base image size */
+    grid-template-columns: repeat(3, 1fr); /* Fixed 3 columns so images never shrink when widening */
     gap: 0.5rem;
     padding: 0 2rem 6rem; /* Tighter outer boundaries on large screens */
     max-width: 2400px;
     margin: 0 auto;
     transition: padding 0.4s ease, gap 0.4s ease;
+}
+
+@media (max-width: 1024px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 1.5rem 4rem;
+    }
 }
 
 .gallery img {
