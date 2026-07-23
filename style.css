@@ -316,9 +316,11 @@ body {
 
 @media (max-width: 900px) {
     .hero {
-        grid-template-columns: 1fr;
-        gap: 2rem;
+        display: block;
         text-align: center;
+    }
+    .hero-left {
+        margin-bottom: 2rem;
     }
     .hero-clients {
         justify-content: center;
