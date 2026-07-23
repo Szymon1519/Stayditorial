@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="images/favicon.png" type="image/png">
     <title>Stayditorial | Photography & Visual Storytelling</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=2">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
@@ -186,13 +186,14 @@
         }
 
         function openLightbox(index) {
+            if (window.innerWidth <= 600) return; // Prevent gallery view in mobile
             currentIndex = index;
             lightboxImg.src = imagesArray[currentIndex].src;
             lightboxImg.style.opacity = 1;
             lightbox.setAttribute('aria-hidden', 'false');
             lightbox.classList.add('active');
             document.body.style.overflow = 'hidden';
-            window.scrollTo(0, 0); // Optional: if we want it fully fixed, body overflow hidden works.
+
         }
 
         function closeLightbox() {

@@ -325,8 +325,8 @@ body {
     }
     .gallery {
         grid-template-columns: 1fr;
-        gap: 0.5rem; /* Still tight on mobile */
-        padding: 0 1.5rem 4rem; /* normal mobile bounds */
+        gap: 0.25rem; /* Narrower gap on mobile */
+        padding: 0 0.5rem 4rem; /* Narrower outer bounds on mobile */
     }
     .site-footer {
         padding: 2rem 1.5rem;
