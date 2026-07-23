@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="images/favicon.png" type="image/png">
     <title>Stayditorial | Photography & Visual Storytelling</title>
-    <link rel="stylesheet" href="style.css?v=12">
+    <link rel="stylesheet" href="style.css?v=13">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
@@ -214,15 +214,43 @@
             currentIndex = (currentIndex - 1 + imagesArray.length) % imagesArray.length;
             updateLightboxImage();
         }
-
+        
+        let lastTapTime = 0;
+        let isMobileZoomed = false;
         const galleryContainer = document.querySelector('.gallery');
-        const imgs = Array.from(galleryContainer.querySelectorAll('img'));
         
         imagesArray.forEach((img, index) => {
             img.style.cursor = 'pointer';
             img.addEventListener('click', (e) => {
                 if (window.innerWidth <= 600) {
-                    // Mobile: Prevent lightbox, allow native OS double-tap-to-zoom
+                    const currentTime = new Date().getTime();
+                    const tapLength = currentTime - lastTapTime;
+                    
+                    if (tapLength < 300 && tapLength > 0) {
+                        e.preventDefault(); // Stop native zoom fighting
+                        
+                        if (!isMobileZoomed) {
+                            // Calculate scale to make image exactly fill the viewport width
+                            const scaleFactor = window.innerWidth / img.offsetWidth;
+                            
+                            // Find the exact Y center of the tapped image relative to the gallery container
+                            const rect = img.getBoundingClientRect();
+                            const galleryRect = galleryContainer.getBoundingClientRect();
+                            const yTap = (rect.top - galleryRect.top) + (rect.height / 2);
+                            
+                            // Apply pure GPU zoom centered precisely on the photo
+                            galleryContainer.style.transformOrigin = `50% ${yTap}px`;
+                            galleryContainer.style.transition = 'transform 0.6s cubic-bezier(0.22, 1, 0.36, 1)';
+                            galleryContainer.style.transform = `scale(${scaleFactor})`;
+                            
+                            isMobileZoomed = true;
+                        } else {
+                            // Zoom back out
+                            galleryContainer.style.transform = 'scale(1)';
+                            isMobileZoomed = false;
+                        }
+                    }
+                    lastTapTime = currentTime;
                     return;
                 }
                 openLightbox(index);
