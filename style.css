@@ -211,7 +211,6 @@ body {
     padding: 0 2rem 6rem; /* Tighter outer boundaries on large screens */
     max-width: 2400px;
     margin: 0 auto;
-    transition: padding 0.4s ease, gap 0.4s ease;
 }
 
 @media (max-width: 1024px) {
