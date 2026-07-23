@@ -197,6 +197,10 @@ body {
     color: var(--text-color);
 }
 
+.hero-clients.duplicate {
+    display: none;
+}
+
 /* =========================================
    GALLERY (CROPPED GRID)
 ========================================= */
@@ -322,11 +326,37 @@ body {
     .hero {
         padding: 3rem 1.5rem;
         gap: 2rem;
+        overflow-x: hidden;
     }
+    
+    .hero-clients-wrapper {
+        display: flex;
+        overflow: hidden;
+        white-space: nowrap;
+        width: 100vw;
+        margin-left: -1.5rem;
+    }
+    
+    .hero-clients {
+        flex-wrap: nowrap;
+        padding-right: 2.5rem;
+        animation: marquee 20s linear infinite;
+        flex-shrink: 0;
+    }
+    
+    .hero-clients.duplicate {
+        display: flex;
+    }
+    
+    @keyframes marquee {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-100%); }
+    }
+    
     .gallery {
         grid-template-columns: 1fr;
-        gap: 0.25rem; /* Narrower gap on mobile */
-        padding: 0 0.5rem 4rem; /* Narrower outer bounds on mobile */
+        gap: 2px; /* Super thin gap on mobile */
+        padding: 0 2px 4rem; /* Super thin outer bounds on mobile */
     }
     .site-footer {
         padding: 2rem 1.5rem;
