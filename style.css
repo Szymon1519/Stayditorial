@@ -350,8 +350,9 @@ body {
         display: flex;
         overflow: hidden;
         white-space: nowrap;
-        width: 100vw;
-        margin-left: calc(-50vw + 50%);
+        width: auto;
+        margin-left: -1.5rem;
+        margin-right: -1.5rem;
     }
     
     .hero-clients {
