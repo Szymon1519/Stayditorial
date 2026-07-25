@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/favicon.png" type="image/png">
+    <title>Stayditorial | About</title>
+    <link rel="stylesheet" href="style.css?v=23">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="sticky-header">
+        <div class="header-inner">
+            <a href="index.html" class="logo">STAYDITORIAL</a>
+            <nav class="desktop-nav">
+                <a href="about.html">About</a>
+                <a href="mailto:hi@stayditorial.com">Contact</a>
+                <a href="https://instagram.com/stayditorial" target="_blank" rel="noopener">Instagram</a>
+                <a href="https://canva.link/stayditorial" target="_blank" rel="noopener">Media Kit</a>
+            </nav>
+            <button id="mobile-menu-btn" aria-label="Menu" aria-expanded="false">
+                <span class="hamburger"></span>
+            </button>
+        </div>
+        <nav id="mobile-nav" class="mobile-nav" aria-hidden="true">
+            <a href="about.html">About</a>
+            <a href="mailto:hi@stayditorial.com">Contact</a>
+            <a href="https://instagram.com/stayditorial" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://canva.link/stayditorial" target="_blank" rel="noopener">Media Kit</a>
+        </nav>
+    </header>
+
+    <main class="about-section">
+        <section class="about-hero">
+            <div class="about-hero-left">
+                <h1 class="hero-title">About Us</h1>
+                <p class="hero-intro">Hi! We are Klaudia and Szymon, the creative duo behind @para_lata &amp; @stayditorial. Specializing in luxury slow travel and editorial storytelling, we translate the soul of a destination into a visual narrative.</p>
+                <p class="hero-intro" style="margin-top: 1.5rem;">From the historic serenity of Sanctuary Mandela to the refined landscapes of La Petite Ferme, our work focuses on the quiet, sophisticated moments that define a guest’s experience.</p>
+                <p class="hero-intro" style="margin-top: 1.5rem;">Based in London and working worldwide, we partner with heritage brands and boutique hotels to craft timeless content that resonates with the modern, conscious traveler.</p>
+            </div>
+            <div class="about-hero-right">
+                <img src="images/about-us.jpg" alt="Klaudia and Szymon" class="about-image">
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <p>&copy; STAYDITORIAL 2025</p>
+            <div class="footer-links">
+                <a href="mailto:hi@stayditorial.com">hi@stayditorial.com</a>
+                <a href="https://instagram.com/stayditorial" target="_blank">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const nav = document.getElementById('mobile-nav');
+
+        btn.addEventListener('click', () => {
+            btn.classList.toggle('active');
+            const isExpanded = btn.classList.contains('active');
+            btn.setAttribute('aria-expanded', isExpanded);
+            nav.setAttribute('aria-hidden', !isExpanded);
+            nav.classList.toggle('open');
+        });
+    </script>
+</body>
+</html>
