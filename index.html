@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="images/favicon.png" type="image/png">
     <title>Stayditorial | Photography & Visual Storytelling</title>
-    <link rel="stylesheet" href="style.css?v=18">
+    <link rel="stylesheet" href="style.css?v=37">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
@@ -14,8 +14,9 @@
 
     <header class="sticky-header">
         <div class="header-inner">
-            <a href="#" class="logo">STAYDITORIAL</a>
+            <a href="index.html" class="logo">STAYDITORIAL</a>
             <nav class="desktop-nav">
+                <a href="about.html">About</a>
                 <a href="mailto:hi@stayditorial.com">Contact</a>
                 <a href="https://instagram.com/stayditorial" target="_blank" rel="noopener">Instagram</a>
                 <a href="https://canva.link/stayditorial" target="_blank" rel="noopener">Media Kit</a>
@@ -25,9 +26,10 @@
             </button>
         </div>
         <nav id="mobile-nav" class="mobile-nav" aria-hidden="true">
+            <a href="about.html">About</a>
             <a href="mailto:hi@stayditorial.com">Contact</a>
             <a href="https://instagram.com/stayditorial" target="_blank" rel="noopener">Instagram</a>
-            <a href="https://www.paralata.com/stayditorial" target="_blank" rel="noopener">Media Kit</a>
+            <a href="https://canva.link/stayditorial" target="_blank" rel="noopener">Media Kit</a>
         </nav>
     </header>
 
@@ -38,13 +40,15 @@
                 <p class="hero-subtitle">Hotels, Stays &amp; Experiences</p>
             </div>
             <div class="hero-right">
-                <p class="hero-intro">Hi! We're Klaudia &amp; Szymon, a creative duo capturing stays and experiences around the world.</p>
                 <p class="hero-clients-title">Our recent selected work includes</p>
                 <div class="hero-clients-wrapper">
                     <div class="hero-clients">
                         <span>The Standard, Maldives</span>
                         <span>Relais Terre di Romanello, Sicily</span>
                         <span>Masseria del Carbon, Sicily</span>
+                        <span>Sanctuary Mandela, South Africa</span>
+                        <span>Oase by 7 Star Lodges, South Africa</span>
+                        <span>La Petite Ferme, South Africa</span>
                         <span>The Orangery, London</span>
                         <span>Chestnut Bakery, London</span>
                     </div>
@@ -52,6 +56,9 @@
                         <span>The Standard, Maldives</span>
                         <span>Relais Terre di Romanello, Sicily</span>
                         <span>Masseria del Carbon, Sicily</span>
+                        <span>Sanctuary Mandela, South Africa</span>
+                        <span>Oase by 7 Star Lodges, South Africa</span>
+                        <span>La Petite Ferme, South Africa</span>
                         <span>The Orangery, London</span>
                         <span>Chestnut Bakery, London</span>
                     </div>
@@ -59,6 +66,31 @@
             </div>
         </section>
         <div class="gallery">
+            <!-- Petite Ferme -->
+            <img src="images/DSC03023.JPG" alt="Stayditorial Photo">
+            <img src="images/DSC03025-1.JPG" alt="Stayditorial Photo">
+            <img src="images/DSC03075.JPG" alt="Stayditorial Photo">
+            <img src="images/DSC03184.JPG" alt="Stayditorial Photo">
+            <img src="images/DSC03124.JPG" alt="Stayditorial Photo">
+            <img src="images/DSC04108.JPG" alt="Stayditorial Photo">
+            <img src="images/DSC04116.JPG" alt="Stayditorial Photo">
+            <img src="images/DSC04141.JPG" alt="Stayditorial Photo">
+            <img src="images/DSC04173.JPG" alt="Stayditorial Photo">
+            <!-- Other New Photos -->
+            <img src="images/DSC02218.JPG" alt="Stayditorial Photo">
+            <img src="images/DSC02323.JPG" alt="Stayditorial Photo">
+            <img src="images/DSC02492.JPG" alt="Stayditorial Photo">
+            <img src="images/DSC02570.JPG" alt="Stayditorial Photo">
+            <img src="images/DSC02581.JPG" alt="Stayditorial Photo">
+            <img src="images/DSC02662.JPG" alt="Stayditorial Photo">
+            <img src="images/DSC02965.JPG" alt="Stayditorial Photo">
+            <img src="images/DSC03436.JPG" alt="Stayditorial Photo">
+            <img src="images/DSC03449.JPG" alt="Stayditorial Photo">
+            <img src="images/DSC03458.JPG" alt="Stayditorial Photo">
+            <img src="images/DSC03461.JPG" alt="Stayditorial Photo">
+            <img src="images/DSC03687.JPG" alt="Stayditorial Photo">
+            <img src="images/DSC04068.JPG" alt="Stayditorial Photo">
+            <img src="images/DSC04072.JPG" alt="Stayditorial Photo">
             <img src="https://static.wixstatic.com/media/80ba55_36381839e0964793bb439681956bd01f~mv2.jpeg" alt="Stayditorial Portfolio Image">
             <img src="https://static.wixstatic.com/media/80ba55_82928f1266d449e69e7dd38a0f2f8cb1~mv2.jpg" alt="Stayditorial Portfolio Image">
             <img src="https://static.wixstatic.com/media/80ba55_1b8e393de9a941919cafa2a6adcb171e~mv2.jpg" alt="Stayditorial Portfolio Image">
@@ -242,6 +274,111 @@
         
         // Click image to go next
         lightboxImg.addEventListener('click', showNext);
+
+        // Zero-crop Justified Gallery Layout Engine
+        function layoutGallery() {
+            const computedStyle = window.getComputedStyle(galleryContainer);
+            const paddingLeft = parseFloat(computedStyle.paddingLeft);
+            const paddingRight = parseFloat(computedStyle.paddingRight);
+            const innerWidth = galleryContainer.getBoundingClientRect().width - paddingLeft - paddingRight;
+            
+            // MOBILE OVERRIDE: Force single column, full width for all images
+            if (window.innerWidth <= 600) {
+                imagesArray.forEach(img => {
+                    if (img.closest('.duplicate')) return;
+                    img.style.width = '100%';
+                    img.style.height = 'auto';
+                    img.style.flexGrow = '1';
+                    img.style.objectFit = 'contain';
+                    // Optional: margin-bottom if gap doesn't apply cleanly, but flex gap works fine
+                });
+                return; // Exit the justified layout engine entirely
+            }
+            
+            // Base target height: increased to make all lines significantly taller/bigger
+            let isDesktop = window.innerWidth > 1024;
+            let baseTargetHeight = isDesktop ? (window.innerHeight * 0.52) : (window.innerWidth > 600 ? 450 : 300);
+                
+            const gap = 16; // 1rem in px
+
+            let currentRow = [];
+            let currentRowAspectRatioSum = 0;
+            
+            // Mark specific photos as "Big photo"
+            imagesArray.forEach(img => {
+                if (img.src.includes('DSC03124') || img.src.includes('DSC02492')) {
+                    img.classList.add('big-photo');
+                }
+            });
+
+            const renderRow = (row, height) => {
+                row.forEach(rowImg => {
+                    const imgAspect = (rowImg.naturalWidth || 1) / (rowImg.naturalHeight || 1);
+                    rowImg.style.width = (height * imgAspect - 0.5) + 'px';
+                    rowImg.style.height = height + 'px';
+                    rowImg.style.flexGrow = '1';
+                    rowImg.style.objectFit = 'cover';
+                });
+            };
+
+            for (let i = 0; i < imagesArray.length; i++) {
+                const img = imagesArray[i];
+                if (img.closest('.duplicate')) continue; 
+                
+                const aspect = (img.naturalWidth || 1) / (img.naturalHeight || 1);
+                
+                // Try adding this image to the current row
+                const aspectSumWith = currentRowAspectRatioSum + aspect;
+                const heightWith = (innerWidth - (currentRow.length) * gap) / aspectSumWith;
+                
+                // Dynamically adjust target height if this row contains a big photo
+                let hasBigPhoto = currentRow.some(rImg => rImg.classList.contains('big-photo')) || img.classList.contains('big-photo');
+                let rowTargetHeight = (isDesktop && hasBigPhoto) ? (window.innerHeight * 0.70) : baseTargetHeight;
+                
+                // If adding this image makes the height smaller than target, we have a choice
+                if (heightWith <= rowTargetHeight) {
+                    const heightWithout = currentRow.length > 0 ? (innerWidth - (currentRow.length - 1) * gap) / currentRowAspectRatioSum : Infinity;
+                    
+                    // Which one is closer to rowTargetHeight?
+                    if (Math.abs(heightWithout - rowTargetHeight) < Math.abs(heightWith - rowTargetHeight)) {
+                        renderRow(currentRow, heightWithout);
+                        currentRow = [img];
+                        currentRowAspectRatioSum = aspect;
+                    } else {
+                        currentRow.push(img);
+                        renderRow(currentRow, heightWith);
+                        currentRow = [];
+                        currentRowAspectRatioSum = 0;
+                    }
+                } else {
+                    // Still too tall, keep adding
+                    currentRow.push(img);
+                    currentRowAspectRatioSum = aspectSumWith;
+                }
+            }
+            
+            // Render last row
+            if (currentRow.length > 0) {
+                let calculatedHeight = (innerWidth - (currentRow.length - 1) * gap) / currentRowAspectRatioSum;
+                // Removed the artificial height clamp to guarantee absolutely 0% cropping!
+                renderRow(currentRow, calculatedHeight);
+            }
+        }
+
+        Promise.all(imagesArray.map(img => {
+            if (img.complete) return Promise.resolve();
+            return new Promise(resolve => {
+                img.addEventListener('load', resolve);
+                img.addEventListener('error', resolve);
+            });
+        })).then(() => {
+            layoutGallery();
+        });
+
+        const resizeObserver = new ResizeObserver(() => {
+            requestAnimationFrame(() => layoutGallery());
+        });
+        resizeObserver.observe(galleryContainer);
     </script>
 </body>
 </html>
