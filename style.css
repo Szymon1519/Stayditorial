@@ -150,7 +150,7 @@ body {
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
     align-items: center;
-    padding: 6rem 4rem 5rem;
+    padding: 4rem;
     width: 100%;
     max-width: 1800px;
     margin: 0 auto;
@@ -229,29 +229,24 @@ body {
 }
 
 /* =========================================
-   GALLERY (CROPPED GRID)
+   GALLERY (JUSTIFIED FLEXBOX)
 ========================================= */
 .gallery {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Fixed 3 columns so images never shrink when widening */
-    gap: 0.5rem;
-    padding: 0 2rem 6rem; /* Tighter outer boundaries on large screens */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem; /* Decreased gap */
+    padding: 0 4rem 6rem; /* Increased L/R margins */
     max-width: 2400px;
     margin: 0 auto;
 }
 
 @media (max-width: 1024px) {
     .gallery {
-        grid-template-columns: repeat(2, 1fr);
-        padding: 0 1.5rem 4rem;
-        gap: 0.5rem; /* Keep gap tight on mobile/tablet */
+        padding: 0 2rem 4rem; /* Increased on tablet too */
     }
 }
 
 .gallery img {
-    width: 100%;
-    aspect-ratio: 4 / 5; /* Crop all to single aspect ratio */
-    object-fit: cover;
     display: block;
     border-radius: 0; /* Sharp 90 degree corners */
     cursor: pointer;
@@ -261,21 +256,13 @@ body {
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
-                transform 0.8s cubic-bezier(0.4, 0, 0.2, 1),
-                filter 0.4s ease,
-                width 0.3s ease, margin 0.3s ease;
+                transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* State when Intersection Observer triggers */
 .gallery img.visible {
     opacity: 1;
     transform: translateY(0);
-}
-
-@media (hover: hover) and (pointer: fine) {
-    .gallery img:hover {
-        filter: brightness(0.85);
-    }
 }
 
 
@@ -325,11 +312,10 @@ body {
 ========================================= */
 @media (max-width: 1200px) {
     .gallery {
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         padding: 0 3rem 5rem;
     }
     .hero {
-        padding: 5rem 3rem 4rem;
+        padding: 4rem 3rem;
         gap: 3rem;
     }
     .site-footer {
@@ -352,9 +338,6 @@ body {
     }
     .hero-clients {
         justify-content: center;
-    }
-    .gallery {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     }
 }
 
