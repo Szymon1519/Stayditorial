@@ -372,7 +372,7 @@ body {
     .hero-clients {
         flex-wrap: nowrap;
         padding-right: 2.5rem;
-        animation: marquee 20s linear infinite;
+        animation: marquee 40s linear infinite;
         flex-shrink: 0;
     }
     
